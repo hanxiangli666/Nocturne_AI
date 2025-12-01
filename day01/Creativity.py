@@ -1,10 +1,12 @@
 # 从 openai 库中导入 OpenAI 类
 from openai import OpenAI
-
+import os                       # 1. 新增：引入 os 模块，用来读取系统变量
+from dotenv import load_dotenv  # 2. 新增：引入加载工具
+load_dotenv()
 # 创建OpenAI客户端实例
 client = OpenAI(
     # 使用练习密钥"mock-key-123"
-    api_key="sk-a2c3cb41b95d4261aa39d9270dd4f70f",  
+    api_key = os.getenv("OPENAI_API_KEY"),  
     # Deepseek的API服务地址
     base_url="https://api.deepseek.com"
 )
