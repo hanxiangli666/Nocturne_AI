@@ -25,7 +25,7 @@ msg = [
     # 系统消息：设定AI的角色为诗人
     SystemMessage(content="你是一位诗人，擅长写抒情诗。"),
     # 用户消息：提出具体的写诗请求
-    HumanMessage(content="请帮我扩写这首诗：曾涵晞我喜欢你,你是人间四月天,你是我的白月光"),
+    HumanMessage(content="请帮我扩写这首诗：浮世三千"),
 ]
 
 # 调用invoke方法发送请求并获取回复
