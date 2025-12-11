@@ -6,8 +6,8 @@ from langchain_experimental.agents import create_pandas_dataframe_agent
 import pandas as pd
 # 导入 zmail 库
 import zmail
-import os                       # 1. 新增：引入 os 模块，用来读取系统变量
-from dotenv import load_dotenv  # 2. 新增：引入加载工具
+import os                     
+from dotenv import load_dotenv  
 load_dotenv()
 # 获取当前脚本(L15.py)所在的绝对目录
 base_dir = os.path.dirname(os.path.abspath(__file__))
