@@ -1,104 +1,105 @@
-# 🚀 AI Large Model Development Course | AI Full-Stack Development Notes
+# Nocturne AI
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![LangChain](https://img.shields.io/badge/LangChain-v0.2+-green.svg)
-![OpenAI](https://img.shields.io/badge/OpenAI-API-orange.svg)
-![Status](https://img.shields.io/badge/Status-Learning-yellow)
+An applied AI learning lab for building practical LLM workflows: RAG, LangChain LCEL chains, Streamlit assistants, memory-aware chat, data analysis outputs, and small agent experiments.
 
-## 📖 Introduction
+## Why This Exists
 
-This repository documents my course notes, code implementations, and practical projects for **AI Full-Stack Development**.
-Through this repository, I aim to systematically master the complete skill tree, ranging from the fundamental Transformer architecture to LangChain framework applications, and further into RAG (Retrieval-Augmented Generation) and Agent development.
+This repository is not a single polished product. It is a structured practice space for turning LLM concepts into runnable applications. The strongest evidence here is the progression from API calls and prompt experiments into RAG, memory, streaming UI, and educational assistant prototypes.
 
-> **Core Objective**: To not only understand the theory but to focus on practical application development based on LLMs.
+## Key Projects
 
----
+### 1. Product RAG with history-aware retrieval
 
-## 📚 Syllabus & Progress
+File: `RAG.py`
 
-### Part 01: Understanding LLMs
-- [ ] **History of AI/AGI**: The evolution from the Turing Test to GPT-4.
-- [ ] **Transformer Framework**: "Attention Is All You Need" and Encoder-Decoder architecture analysis.
+Builds a local retrieval-augmented generation chain over `data/ProductFile.txt`.
 
-### Part 02: AI & Prompt Engineering
-- [ ] **API Concepts & Basics**: HTTP requests, authentication, and environment configuration.
-- [ ] **Interfaces & Parameters**: Deep dive into core parameters like Temperature, Top-p, etc.
-- [ ] **Prompt Engineering**: Advanced techniques such as CoT (Chain of Thought) and ToT (Tree of Thoughts).
-- [ ] **Tool Practice**: Developing an AI Report Generation Tool.
+Technical details:
 
-### Part 03: LangChain Framework
-- [ ] **LangChain Workflow**: Practice with LCEL (LangChain Expression Language) syntax.
-- [ ] **Core Components**: Prompt Templates and Output Parsers.
-- [ ] **Memory Components**: Managing long conversation history and context.
-- [ ] **🤖 Project Practice**: Building an intelligent chatbot with memory capabilities.
+- `TextLoader` for local document loading
+- `RecursiveCharacterTextSplitter` for chunking
+- `HuggingFaceEmbeddings` with `all-MiniLM-L6-v2`
+- FAISS vector store
+- LangChain LCEL retrieval chain
+- `create_history_aware_retriever` for follow-up question rewriting
+- `create_stuff_documents_chain` for answer generation
+- manual chat history with `HumanMessage` and `AIMessage`
+- OpenAI-compatible chat client using DeepSeek endpoint
 
-### Part 04: RAG (Retrieval-Augmented Generation)
-- [ ] **RAG Workflow**: Document Loading -> Splitting -> Embedding -> Storage (Vector DB) -> Retrieval -> Generation.
-- [ ] **Advanced Applications & Optimization**: Solving hallucination issues and improving retrieval accuracy.
+### 2. Omni AI Learning Assistant
 
-### Part 05: Agent Application Framework (AI Agents)
-- [ ] **Agent Components**: Tools, Reasoning, and Planning.
-- [ ] **Application Scenarios**: Automated task execution.
-- [ ] **📊 Project Practice**: Intelligent Data Analysis Assistant.
+Path: `Omni-AI-Learning-Assistant/`
 
----
+A Streamlit AI tutor with configurable subjects, teaching style, memory, and streaming responses.
 
-## 🛠️ Tech Stack
+Features:
 
-* **Language**: Python
-* **Core Framework**: [LangChain](https://www.langchain.com/)
-* **Model Services**: OpenAI (GPT-3.5/4), DeepSeek (Optional)
-* **Vector Databases**: ChromaDB / FAISS
-* **Development Tools**: VS Code, Jupyter Notebook
+- Subjects: Computer Science, Mathematics, Physics, Biology, Literature, History
+- Teaching styles: Concise, Detailed, Socratic
+- Streamlit chat interface
+- `ChatMessageHistory` stored in `st.session_state`
+- `RunnableWithMessageHistory` for conversation memory
+- temperature slider for model behavior control
+- LaTeX-friendly prompt rules for STEM explanations
+- OpenAI-compatible API support
 
-# 🚀 AI Large Model Development Course | AI 大模型开发实战笔记
+### 3. Data analysis artifacts
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![LangChain](https://img.shields.io/badge/LangChain-v0.2+-green.svg)
-![OpenAI](https://img.shields.io/badge/OpenAI-API-orange.svg)
+Paths:
 
-## 📖 简介 (Introduction)
+- `artifacts/`
+- `outputTable/`
+- `14/`
+- `15/`
 
-本仓库记录了我学习 **AI 大模型全栈开发** 的课程笔记、代码实现以及项目实战。
-通过这个仓库，我旨在系统性地掌握从 Transformer 基础架构到 LangChain 框架应用，再到 RAG（检索增强生成）和 Agent（智能体）开发的完整技能树。
+Contains generated charts and CSV summaries for traffic, monthly funnel, revenue trends, and category completion rate.
 
-> **核心目标**：不仅理解理论，更注重基于 LLM 的实际应用开发。
+### 4. Small AI engineering exercises
 
----
+Examples:
 
-## 📚 课程大纲与进度 (Syllabus & Progress)
+- `agent.fibonacci_caluculator.py`
+- `memory.py`
+- `partial_variables.py`
+- `Translation.py`
+- `Creativity.py`
+- `Max_tokens.py`
 
-### Part 01: 认识 AI 大模型 (Understanding LLMs)
-- [ ] **AI/AGI 发展历史**：从图灵测试到 GPT-4 的演变。
-- [ ] **Transformer 框架介绍**：Attention Is All You Need，Encoder-Decoder 架构解析。
+These files document API parameter practice, memory concepts, tool-style agents, and prompt behavior experiments.
 
-### Part 02: AI 和提示词工程 (AI & Prompt Engineering)
-- [ ] **API 概念与基础调用**：HTTP 请求、鉴权与环境配置。
-- [ ] **API 接口与参数**：Temperature, Top-p 等核心参数详解。
-- [ ] **提示词工程 (Prompt Engineering)**：CoT (思维链), ToT 等高级技巧。
-- [ ] **工具实战**：AI 报告生成工具开发。
+## Tech Stack
 
-### Part 03: LangChain 框架 (LangChain Framework)
-- [ ] **LangChain 工作流**：LCEL (LangChain Expression Language) 语法实践。
-- [ ] **核心组件**：Prompt Templates (模版), Output Parsers (解析器)。
-- [ ] **Memory 组件**：管理长对话历史与上下文。
-- [ ] **🤖 项目实战**：构建一个具备记忆功能的智能对话机器人。
+- Python
+- Streamlit
+- LangChain / LCEL
+- FAISS
+- HuggingFace sentence-transformer embeddings
+- OpenAI-compatible chat APIs
+- DeepSeek-compatible endpoint
+- pandas / chart artifacts
 
-### Part 04: RAG 检索增强生成 (Retrieval-Augmented Generation)
-- [ ] **RAG 工作流**：文档加载 -> 切分 -> 向量化 (Embedding) -> 存储 (Vector DB) -> 检索 -> 生成。
-- [ ] **高级应用与优化**：解决幻觉问题，提高检索准确率。
+## Run The Learning Assistant
 
-### Part 05: Agent 应用框架 (AI Agents)
-- [ ] **Agent 组件**：Tools (工具), Reasoning (推理), Planning (规划)。
-- [ ] **应用场景**：自动化任务执行。
-- [ ] **📊 项目实战**：智能数据分析助手 (Intelligent Data Analysis Assistant)。
+```powershell
+cd Omni-AI-Learning-Assistant
+python -m venv .venv
+.\.venv\Scripts\python -m pip install -r requirements.txt
+Copy-Item .env.example .env
+.\.venv\Scripts\python -m streamlit run app.py
+```
 
----
+Set your API key in `.env` or Streamlit secrets.
 
-## 🛠️ 技术栈 (Tech Stack)
+## What This Repository Demonstrates
 
-* **语言**: Python
-* **核心框架**: [LangChain](https://www.langchain.com/)
-* **模型服务**: OpenAI (GPT-3.5/4), DeepSeek (可选)
-* **向量数据库**: ChromaDB / FAISS
-* **开发工具**: VS Code, Jupyter Notebook
+- Ability to move beyond API calls into RAG and memory-aware workflows.
+- Understanding of retrieval, chunking, embeddings, vector search, and prompt orchestration.
+- Product sense for educational AI assistants, not only notebook experiments.
+- Practical Streamlit UI work with streaming and session state.
+
+## Next Improvements
+
+- Split each app into its own cleaner subproject.
+- Add screenshots and short demo GIFs.
+- Add tests for prompt assembly and retriever behavior.
+- Replace duplicated bilingual README fragments with one evidence-first project narrative.
